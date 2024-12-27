@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/answer_button.dart';
+import 'package:myapp/controller/quiz_controller.dart';
 import 'package:myapp/data/quizz.dart';
 
 class QuestionsScreen extends StatefulWidget {
@@ -12,7 +13,7 @@ class QuestionsScreen extends StatefulWidget {
 }
 
 class _QuestionsScreenState extends State<QuestionsScreen> {
-  final currentQuestion = questions[0];
+  final currentQuestion = QuizController().getCurrentQuestion();
 
   @override
   Widget build(BuildContext context) {
