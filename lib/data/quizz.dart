@@ -19,7 +19,9 @@ var questions = [
     'Ignore data changes',
     'Render UI that does not depend on data',
   ]),
-  QuizModel('Which widget should you try to use more often: StatelessWidget or StatefulWidget?',[
+  QuizModel(
+      'Which widget should you try to use more often: StatelessWidget or StatefulWidget?',
+      [
         'StatelessWidget',
         'StatefulWidget',
         'Both are equally good',

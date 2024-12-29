@@ -9,12 +9,12 @@ class QuizController {
   }
 
   void nextQuestion() {
-    if (_currentQuestionIndex < questions.length - 1) {
+    if (_currentQuestionIndex < questions.length) {
       _currentQuestionIndex++;
     }
   }
 
   bool isLastQuestion() {
-    return _currentQuestionIndex == questions.length - 1;
+    return _currentQuestionIndex == questions.length;
   }
 }

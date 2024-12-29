@@ -1,18 +1,17 @@
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:1245054115.
 import 'package:flutter/material.dart';
-import 'package:myapp/controller/quiz_controller.dart';
 
 class AnswerButton extends StatelessWidget {
-  const AnswerButton(this.answerOption, {super.key});
+  const AnswerButton(this.answerOption, {super.key, required this.onPressed});
 
   final String answerOption;
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(bottom: 5),
       child: ElevatedButton(
-        onPressed: QuizController().nextQuestion,
+        onPressed: onPressed,
         style: ElevatedButton.styleFrom(
             backgroundColor: const Color(0xFFff7f27),
             foregroundColor: Colors.white,
