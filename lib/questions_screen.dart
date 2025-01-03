@@ -16,7 +16,7 @@ class QuestionsScreen extends StatefulWidget {
 class _QuestionsScreenState extends State<QuestionsScreen> {
   final QuizController _quizController = QuizController();
   int _correctAnswers = 0;
-  List<String> _selectedAnswers = [];
+  final List<String> _selectedAnswers = [];
 
   @override
   Widget build(BuildContext context) {
