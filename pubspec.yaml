@@ -35,6 +35,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
+  google_fonts: ^6.2.1
 
 dev_dependencies:
   flutter_test:
@@ -56,11 +57,68 @@ flutter:
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
+  fonts:
+    - family : Futura
+      fonts:
+      - asset: assets/images/fonts/futur.ttf
+    - family : Futura Bold
+      fonts:
+      - asset: assets/images/fonts/Futura Bold font.ttf
+        weight: 700
+      - asset: assets/images/fonts/Futura Bold Italic font.ttf
+        weight: 700 
+        style: italic 
+    - family : Futura Book
+      fonts:
+      - asset: assets/images/fonts/Futura Book font.ttf
+        weight: 300 
+      - asset: assets/images/fonts/Futura Book Italic font.ttf
+        weight: 300 
+        style: italic 
+    - family : Futura Extra
+      fonts:
+      - asset: assets/images/fonts/Futura Extra Black font.ttf
+        weight: 900
+    - family : Futura Heavy
+      fonts:
+      - asset: assets/images/fonts/Futura Heavy font.ttf
+        weight: 900 
+      - asset: assets/images/fonts/Futura Heavy Italic font.ttf
+        weight: 900 
+        style: italic 
+    - family : Futura Light
+      fonts:
+      - asset: assets/images/fonts/futura light bt.ttf
+        weight: 300 
+      - asset: assets/images/fonts/Futura Light font.ttf
+        weight: 300 
+      - asset: assets/images/fonts/Futura Light Italic font.ttf
+        weight: 300 
+        style: italic 
+    - family : Futura Medium
+      fonts:
+      - asset: assets/images/fonts/futura medium bt.ttf
+        weight: 500 
+      - asset: assets/images/fonts/futura medium condensed bt.ttf
+        weight: 500 
+      - asset: assets/images/fonts/Futura Medium Italic font.ttf
+        weight: 500 
+        style: italic 
+    - family : Futura XBlk BT
+      fonts:
+      - asset: assets/images/fonts/Futura XBlk BT.ttf
+        weight: 900 
+    - family : Futura ConLight
+      fonts:
+      - asset: assets/images/fonts/Futura-CondensedLight.otf
+        weight: 300 
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/quiz-logo.png
+
+  
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

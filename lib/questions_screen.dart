@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/answer_button.dart';
-import 'package:myapp/controller/quiz_controller.dart';
 import 'package:myapp/data/quizz.dart';
-import 'package:myapp/result_screen.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:myapp/results_screen.dart';
 
 class QuestionsScreen extends StatefulWidget {
   const QuestionsScreen({super.key});
@@ -14,69 +14,68 @@ class QuestionsScreen extends StatefulWidget {
 }
 
 class _QuestionsScreenState extends State<QuestionsScreen> {
-  final QuizController _quizController = QuizController();
-  int _correctAnswers = 0;
-  final List<String> _selectedAnswers = [];
+  int currentQuestionIndex = 0;
+
+  final List<String> selectedAnswers = [];
+
+  void answerQuestion(String selectedAnswer) {
+    setState(
+      () {
+        selectedAnswers.add(selectedAnswer);
+        if (currentQuestionIndex < questions.length - 1) {
+          currentQuestionIndex++;
+        } else {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ResultScreen(
+                selectedAnswers: selectedAnswers,
+              ),
+            ),
+          );
+        }
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
+    final currentQuestion = questions[currentQuestionIndex];
     return MaterialApp(
       home: Scaffold(
         body: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
-              colors: [Colors.pink, Colors.deepOrange],
+              colors: [
+                Colors.pink,
+                Colors.deepOrange,
+              ],
             ),
           ),
           child: Center(
             child: Container(
-              margin: const EdgeInsets.all(40),
+              margin: const EdgeInsets.all(
+                40,
+              ),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
-                    _quizController.getCurrentQuestion().question,
-                    style: const TextStyle(
+                    currentQuestion.question,
+                    style: GoogleFonts.lato(
                       color: Colors.white,
                       fontSize: 24,
+                      fontWeight: FontWeight.bold,
                     ),
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(
                     height: 30,
                   ),
-                  ...(_quizController.getCurrentQuestion().answers).map(
-                    (answer) {
-                      return AnswerButton(
-                        answer,
-                        onPressed: () {
-                          _selectedAnswers.add(answer);
-
-                          if (answer ==
-                              _quizController
-                                  .getCurrentQuestion()
-                                  .correctAnswer) {
-                            setState(() {
-                              _correctAnswers++;
-                            });
-                          }
-
-                          setState(() {
-                            _quizController.nextQuestion();
-                            if (_quizController.isLastQuestion()) {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => ResultScreen(
-                                            numCorrectAnswers: _correctAnswers,
-                                            selectedAnswers: _selectedAnswers,
-                                          )));
-                            }
-                          });
-                        },
-                      );
-                    },
-                  ),
+                  ...currentQuestion.getShuffledAnswers().map((answer) {
+                    return AnswerButton(
+                        answer: answer, onTap: () => answerQuestion(answer));
+                  })
                 ],
               ),
             ),

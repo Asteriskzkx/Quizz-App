@@ -3,15 +3,22 @@ import 'package:myapp/questions_screen.dart';
 import 'package:myapp/start_screen.dart';
 
 void main() {
-  runApp(MaterialApp(
-    home: Scaffold(
-      body: Container(
+  runApp(
+    MaterialApp(
+      theme: ThemeData(fontFamily: 'Futura'),
+      home: Scaffold(
+        body: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
-              colors: [Colors.pink, Colors.deepOrange],
+              colors: [
+                Colors.pink,
+                Colors.deepOrange,
+              ],
             ),
           ),
-          child: const StartScreen()),
+          child: const StartScreen(),
+        ),
+      ),
     ),
-  ));
+  );
 }

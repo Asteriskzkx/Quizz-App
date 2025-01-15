@@ -4,6 +4,8 @@ import 'package:myapp/questions_screen.dart';
 class StartScreen extends StatelessWidget {
   const StartScreen({super.key});
 
+  
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -48,7 +50,9 @@ class StartScreen extends StatelessWidget {
             ),
             label: const Text(
               'Start Quiz',
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(
+                color: Colors.white,
+              ),
             ),
           ),
         ],

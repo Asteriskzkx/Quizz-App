@@ -4,6 +4,12 @@ class QuizModel {
 
   QuizModel(this.question, this.answers);
 
-  String get correctAnswer => answers[0];
-
+  List<String> getShuffledAnswers() {
+    // copy the original list
+    final shuffledAnswers = List.of(answers);
+    // Shuffle the copied list
+    shuffledAnswers.shuffle();
+    // Return the shuffled list
+    return shuffledAnswers;
+  }
 }
