@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/data/quizz.dart';
 import 'package:myapp/model/quiz_model.dart';
+import 'package:myapp/questions_screen.dart';
 
 class ResultScreen extends StatelessWidget {
   const ResultScreen({super.key, required this.selectedAnswers});
@@ -96,12 +97,31 @@ class ResultScreen extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            // const SizedBox(
-                            //   width: 5,
-                            // ),
                           ],
                         );
                       },
+                    ),
+                    const SizedBox(
+                      height: 40,
+                    ),
+                    OutlinedButton.icon(
+                      style: OutlinedButton.styleFrom(
+                        side: BorderSide.none,
+                      ),
+                      onPressed: () {
+                        Navigator.of(context).pushReplacement(MaterialPageRoute(
+                            builder: (context) => const QuestionsScreen()));
+                      },
+                      icon: const Icon(
+                        Icons.arrow_right_alt,
+                        color: Colors.white,
+                      ),
+                      label: const Text(
+                        'Restart Quiz',
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
                     ),
                   ],
                 ),
